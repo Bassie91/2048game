@@ -26,9 +26,7 @@ export default {
     background-color: #2c3e50;
     justify-content: space-between;
     align-items: center;
-    border: #ecf0f1 1px solid;
     padding: 1.1rem 1.3rem;
-    margin: 1rem 0 2rem;
 }
 
 .logo {

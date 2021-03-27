@@ -1,5 +1,5 @@
 # game
-
+Project is a working 2048 game with visual flat design.
 ## Project setup
 ```
 npm install

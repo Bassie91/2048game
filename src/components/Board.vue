@@ -9,6 +9,7 @@
         <i @click="moveDown" class="fas fa-arrow-circle-down"></i>
         <i @click="moveRight" class="fas fa-arrow-circle-right"></i>
         </nav>
+        <p>Your score: {{highScore}}</p>
     </div>
 </template>
 
@@ -101,7 +102,6 @@ export default {
 
             for(i=3;i>=0;i--){
                 for(j=4*3+i;j>=i+4;j-=4){
-                    console.log(j)
                     first_number = numbers[j];
                     second_number = numbers[j-4];
                     if(first_number===0){
@@ -193,7 +193,6 @@ export default {
             var j = 0;
             for(i=15;i>0;i-=4){
                 for(j=i;j>i-3;j--){
-                    console.log(j)
                     var first_number = numbers[j];
                     var second_number = numbers[j-1];
                     if(first_number===0){
@@ -258,7 +257,17 @@ export default {
         },
     },
     computed: {
-        
+        highScore() {
+            var numbers = this.numbers;
+            var i = numbers.reduce((a,b) => Number(a) > Number(b) ? a : b);
+            if(i<2048) {
+                return i
+            }
+            else {
+                console.log(i);
+                return "Winner!"
+                }
+        },
     }
     
 }
@@ -272,6 +281,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 1rem;
 }
 
 .board {
@@ -329,12 +339,12 @@ export default {
 
 
 nav {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 nav i {
     font-size: 2rem;
-    margin: 0.5rem;
+    margin: 0.2rem;
     color: #2c3e50;
 }
 
